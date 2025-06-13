@@ -1,0 +1,16 @@
+<{% extends 'base.html' %}
+
+{% block content %}
+  <h2>{{ page.title }}</h2>
+  <h3>{{ page.subtitle }}</h3>
+  <p>{{ page.content }}</p>
+
+  {% if page.image %}
+    <img src="{{ page.image.url }}" alt="Imagen de {{ page.title }}">
+  {% endif %}
+
+  <p>Publicado por {{ page.author }} el {{ page.created_at|date:"d/m/Y H:i" }}</p>
+
+  <a href="{% url 'pages:page_update' page.pk %}">Editar</a> |
+  <a href="{% url 'pages:page_delete' page.pk %}">Eliminar</a>
+{% endblock %}

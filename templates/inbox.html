@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Bandeja de entrada{% endblock %}
+
+{% block content %}
+  <h2>Mensajes recibidos</h2>
+
+  {% if messages %}
+    <ul>
+      {% for msg in messages %}
+        <li>
+          <strong>De:</strong> {{ msg.sender.username }}<br>
+          <strong>Asunto:</strong> {{ msg.subject }}<br>
+          <strong>Fecha:</strong> {{ msg.timestamp|date:"d/m/Y H:i" }}<br>
+          <strong>Contenido:</strong> {{ msg.body }}<br>
+
+          <!-- Botón de respuesta -->
+          <form action="{% url 'send_message' %}" method="get" style="margin-top: 10px;">
+            <input type="hidden" name="reply_to" value="{{ msg.sender.id }}">
+            <button type="submit">Responder</button>
+          </form>
+
+          <hr>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No hay mensajes en tu bandeja.</p>
+  {% endif %}
+{% endblock %}
+

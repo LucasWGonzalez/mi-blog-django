@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}Mi Blog{% endblock %}</title>
+  <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+</head>
+<body>
+  <header>
+    <h1>Mi Blog</h1>
+    <nav>
+      <ul>
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'pages:page_list' %}">Páginas</a></li>
+
+        {% if user.is_authenticated %}
+          <li><a href="{% url 'profile' %}">Perfil</a></li>
+          <li><a href="{% url 'inbox' %}">Mensajes</a></li>
+          <li><a href="{% url 'send_message' %}">Enviar mensaje</a></li>
+          <li>
+            <form method="post" action="{% url 'logout' %}" style="display:inline;">
+              {% csrf_token %}
+              <button type="submit" class="button">Cerrar sesión</button>
+            </form>
+          </li>
+        {% else %}
+          <li><a href="{% url 'login' %}">Login</a></li>
+          <li><a href="{% url 'signup' %}">Signup</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer>
+    <p>&copy; 2025 - Mi Blog</p>
+  </footer>
+</body>
+</html>

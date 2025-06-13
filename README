@@ -1,0 +1,26 @@
+# 📝 Mi Blog en Django
+
+Este es un proyecto web creado con **Django 5.2.2** que permite gestionar publicaciones, autenticación de usuarios, perfiles personalizados y edición de perfil. También está preparado para incluir un sistema de mensajería entre usuarios.
+
+---
+
+## 🚀 Funcionalidades
+
+- Registro, login y logout de usuarios
+- Perfil de usuario con avatar, bio y cumpleaños
+- Edición de perfil
+- CRUD de páginas/blog posts
+- Navegación con barra superior y diseño responsive usando [Simple.css](https://simplecss.org/)
+- Preparado para sistema de mensajería
+- Soporte para archivos multimedia (como imágenes de perfil)
+- CKEditor integrado (opcional)
+
+---
+
+## 📦 Instalación
+
+1. **Clonar el repositorio**
+
+```bash
+git clone https://github.com/tu-usuario/tu-repo.git
+cd tu-repo

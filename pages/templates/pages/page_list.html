@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Lista de páginas{% endblock %}
+
+{% block content %}
+<h2>Lista de páginas</h2>
+
+{% if user.is_authenticated %}
+  <p>
+    <a href="{% url 'pages:page_create' %}">Crear nueva página</a>
+  </p>
+{% endif %}
+
+<ul>
+  {% for page in page_list %}
+    <li>
+      <strong>{{ page.title }}</strong> - {{ page.subtitle }}<br>
+      <a href="{% url 'pages:page_detail' page.pk %}">Ver</a> |
+      <a href="{% url 'pages:page_update' page.pk %}">Editar</a> |
+      <a href="{% url 'pages:page_delete' page.pk %}">Borrar</a>
+    </li>
+  {% empty %}
+    <li>No hay páginas publicadas.</li>
+  {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,32 @@
+<!-- Este es el template base del que heredan todas las páginas -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Mi Blog Financiero{% endblock %}</title>
+</head>
+<body>
+    <!-- Barra de navegación visible en todas las páginas -->
+    <nav>
+    <a href="{% url 'home' %}">Inicio</a> |
+    <a href="{% url 'about' %}">Acerca de mí</a> |
+    {# <a href="{% url 'page-list' %}">Páginas</a> | #}
+
+
+    {% if user.is_authenticated %}
+        <span>Hola, {{ user.username }} 👋</span> |
+        <a href="{% url 'profile' %}">Mi perfil</a> |
+        <a href="{% url 'logout' %}">Cerrar sesión</a>
+    {% else %}
+        <a href="{% url 'login' %}">Iniciar sesión</a> |
+        <a href="{% url 'signup' %}">Registrarse</a>
+    {% endif %}
+</nav>
+<hr>
+
+
+    <!-- Aquí se insertará el contenido específico de cada página -->
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
