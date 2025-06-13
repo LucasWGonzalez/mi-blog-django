@@ -1,5 +1,5 @@
 # 📝 Mi Blog en Django
-
+Proyecto Final de Python de Lucas Walter Gonzalez para Coderhouse - Comision 69550
 Este es un proyecto web creado con **Django 5.2.2** que permite gestionar publicaciones, autenticación de usuarios, perfiles personalizados y edición de perfil. También está preparado para incluir un sistema de mensajería entre usuarios.
 
 ---
